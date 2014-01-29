@@ -1,0 +1,18 @@
+<script type="text/template" id="search_template">
+   <%= render 'form' %>
+</script>
+<div id="posts"></div>
+
+<script type="text/javascript">
+  
+  // A $( document ).ready() block.
+  $( document ).ready(function() {
+      
+     $(function() {
+        // Blog is the app name
+      window.router = new Boneblog.Routers.PostsRouter({posts: <%= @posts.to_json.html_safe -%>});
+      Backbone.history.start();
+    });
+      
+  });
+</script>
